@@ -1,6 +1,6 @@
 import sys
 import copy
-
+import unittest
 
 n = int(input())
 matrix = []
@@ -52,6 +52,9 @@ def valorMenor(k, a):
 
     return g[k, a]
 
+class TesteUnit(unittest.TestCase):  
+    def testeValorMenor(self):
+        self.assertEqual(valorMenor(1, range(2, 5)), 65)
 
 if __name__ == '__main__':
     main()  
