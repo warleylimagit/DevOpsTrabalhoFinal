@@ -55,4 +55,18 @@ jobs:
       architecture: 'x64'
 
   - script: python setup.py sdist
-    displayName: 'Build sdist'
+    displayName: 'Build sdist'  
+
+  - script: docker build -t $(dockerId)/$(imageName) .
+
+  variables:
+  dockerId: warleylimadocker
+  imageName: trabalhofinal
+
+steps:
+- script: |
+    docker build -t $(warleylimadocker)/$(trabalhofinal) .
+    docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
+    docker push $(warleylimadocker)/$(trabalhofinal)
+  env:
+    pswd: $(@trabalhofinalPuc@)
