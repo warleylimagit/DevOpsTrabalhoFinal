@@ -63,9 +63,10 @@ jobs:
     dockerId: warleylimadocker
     imageName: trabalhofinal
 
-- script:
-    docker build -t $(warleylimadocker)/$(trabalhofinal) .
-    docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
-    docker push $(warleylimadocker)/$(trabalhofinal)
-  env:
-    pswd: $(@trabalhofinalPuc@)
+  steps:
+  - script:
+      docker build -t $(warleylimadocker)/$(trabalhofinal) .
+      docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
+      docker push $(warleylimadocker)/$(trabalhofinal)
+    env:
+      pswd: $(@trabalhofinalPuc@)
