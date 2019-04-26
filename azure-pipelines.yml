@@ -60,17 +60,14 @@ jobs:
 - job: 'DockerImage'
   pool:
     vmImage: 'Ubuntu-16.04'
-  
+
+    variables:
+      dockerId: warleylimadocker
+      imageName: trabalhofinal
+
   steps:
   - script: docker build -t $(dockerId)/$(imageName) .
-
-- job: 'PushDocker'
-
-  variables:
-    dockerId: warleylimadocker
-    imageName: trabalhofinal
-
-  steps:
+  
   - script:
       docker build -t $(warleylimadocker)/$(trabalhofinal) .
       docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
