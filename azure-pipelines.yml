@@ -70,7 +70,7 @@ jobs:
   
   - script:
       docker build -t $(warleylimadocker)/$(trabalhofinal) .
-      docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
+      docker login -u $(warleylimadocker) -p $(senha)
       docker push $(warleylimadocker)/$(trabalhofinal)
     env:
       pswd: $(@trabalhofinalPuc@)
