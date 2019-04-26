@@ -59,7 +59,7 @@ jobs:
 
   - script: docker build -t $(dockerId)/$(imageName) .
 
-  - variables:
+  variables:
     dockerId: warleylimadocker
     imageName: trabalhofinal
 
