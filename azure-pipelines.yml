@@ -63,7 +63,7 @@ jobs:
     dockerId: warleylimadocker
     imageName: trabalhofinal
 
-- script: |
+- script:
     docker build -t $(warleylimadocker)/$(trabalhofinal) .
     docker login -u $(warleylimadocker) -p $(@wsl_docker060104@)
     docker push $(warleylimadocker)/$(trabalhofinal)
